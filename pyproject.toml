@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "crewai-socialscrape"
+version = "0.1.0"
+description = "CrewAI tools for SocialScrape: profiles, posts, comments, search and video transcripts from social platforms as JSON."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "SocialScrape", email = "hello@socialscrape.dev" }]
+keywords = ["crewai", "tools", "agents", "social media", "tiktok", "instagram", "youtube", "transcript", "crew"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Typing :: Typed",
+]
+dependencies = ["crewai>=1.0", "socialscrape-sdk>=0.1.2,<1"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://socialscrape.dev/?utm_source=pypi&utm_medium=package&utm_campaign=crewai-socialscrape"
+Documentation = "https://socialscrape.dev/docs/crewai?utm_source=pypi&utm_medium=package&utm_campaign=crewai-socialscrape"
+Repository = "https://github.com/SocialScraper/crewai-socialscrape"
+
+[tool.hatch.build.targets.wheel]
+packages = ["crewai_socialscrape"]
+
+[tool.hatch.build.targets.sdist]
+include = ["crewai_socialscrape", "tests", "README.md", "LICENSE"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "RUF"]
